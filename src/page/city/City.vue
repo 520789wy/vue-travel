@@ -1,21 +1,21 @@
 <template>
     <div class="cities" >
         <city-header></city-header>
-        <hot-city :HotCites="HotCites" :SortCities="SortCities" @change="handleLetterChange"></hot-city>
-        <city-list :SortCities="SortCities" :letter="letter"></city-list>
+        <city-list :HotCites="HotCites" :SortCities="SortCities"  :letter="letter"></city-list>
+        <alphabet :SortCities="SortCities" @change="handleLetterChange" ></alphabet>
     </div>
 </template>
 <script>
     
     import axios from 'axios'
     import CityHeader from './components/Header.vue'
-    import HotCity from './components/Hotcity.vue'
+    import Alphabet from './components/Alphabet.vue'
     import CityList from './components/List.vue'
     export default{
         name:'City',
         components: {
             CityHeader,
-            HotCity,
+            Alphabet,
             CityList
         },
         data(){
@@ -43,8 +43,6 @@
         },
         mounted () {//发送ajax请求
             this.getCityInfo()
-            
-           
         }
     }
 </script>
